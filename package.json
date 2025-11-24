@@ -1,0 +1,44 @@
+{
+    "name": "frontend",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "prepare": "husky install",
+        "pre-commit": "node scripts/commitFileCountCheck.mjs && node scripts/branchNameConvention.mjs",
+        "lint": "eslint --fix 'src/**/*.{js,jsx,ts,tsx}' --ignore-pattern .gitignore",
+        "format:check": "prettier . --write '**/{src,test}/**/{*.js,*.ts,*.tsx,*.json,*.md,*.mdx}'"
+    },
+    "lint-staged": {
+        "**/*": [
+            "npm run lint",
+            "prettier --write --ignore-unknown"
+        ]
+    },
+    "dependencies": {
+        "next": "16.0.3",
+        "react": "19.2.0",
+        "react-dom": "19.2.0"
+    },
+    "devDependencies": {
+        "@commitlint/cli": "^20.1.0",
+        "@commitlint/config-conventional": "^20.0.0",
+        "@types/node": "^20",
+        "@types/react": "^19",
+        "@types/react-dom": "^19",
+        "@typescript-eslint/eslint-plugin": "^8.47.0",
+        "@typescript-eslint/parser": "^8.47.0",
+        "eslint": "^9.39.1",
+        "eslint-config-next": "16.0.3",
+        "eslint-config-prettier": "^10.1.8",
+        "eslint-plugin-prettier": "^5.5.4",
+        "eslint-plugin-react": "^7.37.5",
+        "eslint-plugin-react-hooks": "^7.0.1",
+        "husky": "^8.0.0",
+        "lint-staged": "^16.2.7",
+        "prettier": "3.6.2",
+        "typescript": "^5"
+    }
+}
